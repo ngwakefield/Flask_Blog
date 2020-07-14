@@ -166,7 +166,7 @@ def user_posts(username):
 
 def send_reset_email(user):
     # Generate the token
-    token = User.get_reset_token()
+    token = user.get_reset_token()
     msg = Message('Password Reset Request', 
         sender = 'noreply@demo.com', recipients = [user.email])
     # Need the external = True flag because you need the full domain
@@ -175,6 +175,7 @@ def send_reset_email(user):
 
 If you did not make this request, ignore this email and no changes will be made.
 '''
+    mail.send(msg)
 
 @app.route("/reset_password", methods = ['GET', 'POST'])
 def reset_request():
