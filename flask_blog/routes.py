@@ -11,7 +11,9 @@ import os
 @app.route('/')
 @app.route('/home')
 def home():
-    posts = Post.query.all()
+    # Page is looking up the URL for query params
+    page = request.args.get('page', 1, type = int)
+    posts = Post.query.paginate(per_page=3, page = page)
     return render_template('home.html', posts = posts)
 
 # Create an about page
