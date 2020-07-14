@@ -68,3 +68,7 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@app.route('/account')
+def account():
+    return render_template('account.html', title = "Account")
