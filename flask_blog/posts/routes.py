@@ -39,7 +39,7 @@ def update_post(post_id):
         # Don't need an add since row already in db
         db.session.commit()
         flash('Your post has been updated!', 'success')
-        return redirect('posts.post', post_id = post.id))
+        return redirect(url_for('posts.post', post_id = post.id))
 
     elif request.method == 'GET':
         form.title.data = post.title

@@ -20,7 +20,7 @@
     {% if posts.page ==  page_num %}
       <a class = "btn btn-info mb-4">{{page_num}}</a>
     {% else %}
-      <a class = "btn btn-outline-info mb-4" href = "{{url_for('posts.user_posts', page=page_num, username=user.username)}}">{{page_num}}</a>
+      <a class = "btn btn-outline-info mb-4" href = "{{url_for('users.user_posts', page=page_num, username=user.username)}}">{{page_num}}</a>
     {% endif %}
   {% else %}
     ...
