@@ -1,2 +1,11 @@
+# Ignore this
 *.pyc
+*.jpg
 site.db
+
+# But don't ignore the following
+!default.jpg
+
+# Even in subs
+!*/
+
