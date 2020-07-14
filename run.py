@@ -2,6 +2,10 @@
 Notes:
 Powershell syntax for environment variable
 $env:FLASK_APP = "flask_blog.py"
+Remove the variable by doing Remove-Item Env:\FLASK_APP
+Terminal syntax
+set VARNAME = SOMETHING
+Use setx to make permanent
 ctrl-C to end webserver
 
 Database created from command line
