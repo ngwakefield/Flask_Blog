@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+<h1 class = "mb-3"> Posts by {{user.username}} ({{posts.total}})</h1>
 {% for post in posts.items %}
 <article class="media content-section">
   <img class="rounded-circle article-img"
@@ -19,7 +20,7 @@
     {% if posts.page ==  page_num %}
       <a class = "btn btn-info mb-4">{{page_num}}</a>
     {% else %}
-      <a class = "btn btn-outline-info mb-4" href = "{{url_for('home', page=page_num)}}">{{page_num}}</a>
+      <a class = "btn btn-outline-info mb-4" href = "{{url_for('user_posts', page=page_num, username=user.username)}}">{{page_num}}</a>
     {% endif %}
   {% else %}
     ...
