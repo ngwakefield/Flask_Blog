@@ -2,6 +2,7 @@ from datetime import datetime
 from flask_blog import db, login_manager
 from flask_login import UserMixin
 
+# This is what defines what current_user is
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))

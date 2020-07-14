@@ -7,27 +7,11 @@ from PIL import Image
 import secrets
 import os
 
-# Dummy data
-posts = [
-    {
-        'author':'Nick Wakefield',
-        'title' : 'Blog Post 1',
-        'content' : 'First post content',
-        'date_posted': '2020-07-13'
-    },
-    {
-        'author':'Jane Doe',
-        'title' : 'Blog Post 2',
-        'content' : 'Second post content',
-        'date_posted': '2020-08-01'
-    }
-]
-
-
 # Basically the root page of the home page
 @app.route('/')
 @app.route('/home')
 def home():
+    posts = Post.query.all()
     return render_template('home.html', posts = posts)
 
 # Create an about page
@@ -119,6 +103,9 @@ def account():
 def new_post():
     form = PostForm()
     if form.validate_on_submit():
+        post = Post(title = form.title.data, content = form.content.data, author = current_user)
+        db.session.add(post)
+        db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect (url_for('home'))
     return render_template('create_post.html', title = "New Post", form = form) 
