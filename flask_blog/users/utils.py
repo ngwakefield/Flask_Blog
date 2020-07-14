@@ -1,3 +1,10 @@
+import os
+import secrets
+from PIL import Image
+from flask import url_for
+from flask_mail import Message
+from flask_blog import app, mail
+
 def save_picture(form_picture):
     '''
     Pass form_picture as the file object
