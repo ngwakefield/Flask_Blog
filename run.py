@@ -17,7 +17,9 @@ Don't need env variable
 '''
 
 # This variable (app) has to exist in __init__.py
-from flask_blog import app
+from flask_blog import create_app
+
+app = create_app()
 
 if __name__ == '__main__':
     app.run(debug = True)
