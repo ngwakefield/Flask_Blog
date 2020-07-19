@@ -1,6 +1,7 @@
 # Ignore this
 *.pyc
 *.jpg
+.vscode/*
 site.db
 
 # But don't ignore the following
