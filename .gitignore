@@ -3,6 +3,7 @@
 *.jpg
 settings.json
 site.db
+notes.txt
 
 # But don't ignore the following
 !default.jpg
